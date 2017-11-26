@@ -1,12 +1,19 @@
 
 #' Mescla datasets
 #'
-#' Funcao que captura os datasets por mes e mescla em um unico dataset do ano.
+#' Função que captura os datasets por mes e mescla em um único dataset do ano.
 #' @param type O tipo do dataset. Valores possiveis: "raw", "wrangled", "spatial", "site"
 #' @param crime O crime que se deseja mesclar os dados
 #' @param year O ano dos datasets
-#' @
-mescla_datasets <- function(type, crime, year, months) {
+#' @param months Um vetor de caracteres contendo os meses. Deve conter duas casas ou zero à esquerda
+#' @export
+#' @examples
+#' # Recupera o dataset de furto de veiculos do ano de 2012
+#' mescla_datasets("spatial", "furtoveiculo", 2012)
+#'
+#' # Recupera o dataset de furto de veiculos do ano de 2015 dos meses de Março a Agosto
+#' mescla_datasets("spatial", "furtoveiculo", 2015, c('03', '04', '05', '06', '07', '08'))
+mescla_datasets <- function(type, crime, year, months = get_months()) {
   default_location <- '/run/media/rmartine/TOSHIBA EXT/big-data-projects/ssp/'
 
   dataset <- data.frame()
@@ -32,6 +39,11 @@ mescla_datasets <- function(type, crime, year, months) {
   return(dataset[,-1])
 }
 
+#' Get Months
+#' Função auxiliar para recuperar um vetor de caracteres de meses,
+#' muito útil para utilizar com a função mescla_datasets()
+#' @param start O mês inicial (opcional)
+#' @param end O mês final (opcional)
 get_months <- function(start = 1, end = 12) {
   months <- seq(start, end, 1)
   smonths <- sprintf("%02d", months)
@@ -39,12 +51,16 @@ get_months <- function(start = 1, end = 12) {
   return(smonths)
 }
 
+#' Recupera Datasets
+#' Recupera o dataset de um ano especifico.
+#' @param type O tipo do dataset
+#' @param crime O tipo do crime
+#' @param years O ano que se deseja recuperar o dataset
 recupera_datasets <- function(type, crime, years) {
-  months <- get_months()
   dataset <- NA
 
   for(year in years) {
-    dataset_year <- mescla_datasets(type, crime, year, months)
+    dataset_year <- mescla_datasets(type, crime, year)
     dataset <- rbind(dataset, dataset_year)
   }
   rm(dataset_year)

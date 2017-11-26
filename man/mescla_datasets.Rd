@@ -4,7 +4,7 @@
 \alias{mescla_datasets}
 \title{Mescla datasets}
 \usage{
-mescla_datasets(type, crime, year, months)
+mescla_datasets(type, crime, year, months = get_months())
 }
 \arguments{
 \item{type}{O tipo do dataset. Valores possiveis: "raw", "wrangled", "spatial", "site"}
@@ -12,7 +12,16 @@ mescla_datasets(type, crime, year, months)
 \item{crime}{O crime que se deseja mesclar os dados}
 
 \item{year}{O ano dos datasets}
+
+\item{months}{Um vetor de caracteres contendo os meses. Deve conter duas casas ou zero à esquerda}
 }
 \description{
-Funcao que captura os datasets por mes e mescla em um unico dataset do ano.
+Função que captura os datasets por mes e mescla em um único dataset do ano.
+}
+\examples{
+# Recupera o dataset de furto de veiculos do ano de 2012
+mescla_datasets("spatial", "furtoveiculo", 2012)
+
+# Recupera o dataset de furto de veiculos do ano de 2015 dos meses de Março a Agosto
+mescla_datasets("spatial", "furtoveiculo", 2015, c('03', '04', '05', '06', '07', '08'))
 }
