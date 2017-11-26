@@ -2,9 +2,7 @@
 % Please edit documentation in R/ssp_tools.R
 \name{get_months}
 \alias{get_months}
-\title{Get Months
-Função auxiliar para recuperar um vetor de caracteres de meses,
-muito útil para utilizar com a função mescla_datasets()}
+\title{Get Months}
 \usage{
 get_months(start = 1, end = 12)
 }
@@ -14,7 +12,6 @@ get_months(start = 1, end = 12)
 \item{end}{O mês final (opcional)}
 }
 \description{
-Get Months
 Função auxiliar para recuperar um vetor de caracteres de meses,
 muito útil para utilizar com a função mescla_datasets()
 }

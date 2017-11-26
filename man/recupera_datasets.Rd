@@ -2,8 +2,7 @@
 % Please edit documentation in R/ssp_tools.R
 \name{recupera_datasets}
 \alias{recupera_datasets}
-\title{Recupera Datasets
-Recupera o dataset de um ano especifico.}
+\title{Recupera Datasets}
 \usage{
 recupera_datasets(type, crime, years)
 }
@@ -15,6 +14,5 @@ recupera_datasets(type, crime, years)
 \item{years}{O ano que se deseja recuperar o dataset}
 }
 \description{
-Recupera Datasets
 Recupera o dataset de um ano especifico.
 }

@@ -40,6 +40,7 @@ mescla_datasets <- function(type, crime, year, months = get_months()) {
 }
 
 #' Get Months
+#'
 #' Função auxiliar para recuperar um vetor de caracteres de meses,
 #' muito útil para utilizar com a função mescla_datasets()
 #' @param start O mês inicial (opcional)
@@ -52,6 +53,7 @@ get_months <- function(start = 1, end = 12) {
 }
 
 #' Recupera Datasets
+#'
 #' Recupera o dataset de um ano especifico.
 #' @param type O tipo do dataset
 #' @param crime O tipo do crime
@@ -68,6 +70,10 @@ recupera_datasets <- function(type, crime, years) {
   return(dataset)
 }
 
+#' Numero NAs
+#'
+#' Conta o número de NAs em cada coluna de um dataset
+#' @param dataset O dataset que deseja analisar
 numero_nas <- function(dataset) {
   na_count <- map(dataset, ~ sum(is.na(.)))
 
