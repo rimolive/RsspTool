@@ -39,6 +39,28 @@ mescla_datasets <- function(type, crime, year, months = get_months()) {
   return(dataset[,-1])
 }
 
+carrega_dataset_ano <- function(type, ano) {
+  default_location <- '/run/media/rmartine/TOSHIBA EXT/big-data-projects/ssp/'
+
+  crimes <- c('furtoveiculo',
+              'homicicio',
+              'latrocinio',
+              'lesaomorte',
+              'rouboveiculo')
+
+  dataset <- data.frame()
+
+  for(crime in crimes) {
+    dataset_crime <- mescla_datasets(type, crime, year)
+    dataset_crime['crime'] <- crime
+
+    dataset <- bind_rows(dataset, dataset_crime)
+  }
+  rm(dataset_month)
+
+  return(dataset[,-1])
+}
+
 #' Get Months
 #'
 #' Função auxiliar para recuperar um vetor de caracteres de meses,
