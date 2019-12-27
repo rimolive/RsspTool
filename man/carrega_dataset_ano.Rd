@@ -4,7 +4,7 @@
 \alias{carrega_dataset_ano}
 \title{Carrega datasets por ano}
 \usage{
-carrega_dataset_ano(type, ano)
+carrega_dataset_ano(type, year)
 }
 \arguments{
 \item{type}{O tipo do dataset. Valores possiveis: "raw", "wrangled", "spatial", "site"}

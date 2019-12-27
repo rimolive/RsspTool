@@ -48,7 +48,7 @@ mescla_datasets <- function(type, crime, year, months = get_months()) {
 #' @examples
 #' # Recupera o dataset de todos os crimes do ano de 2012
 #' carrega_dataset_ano("spatial", 2012)
-carrega_dataset_ano <- function(type, ano) {
+carrega_dataset_ano <- function(type, year) {
   default_location <- '/run/media/rmartine/TOSHIBA EXT/big-data-projects/ssp/'
 
   crimes <- c('furtoveiculo',
