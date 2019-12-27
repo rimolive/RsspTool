@@ -39,6 +39,15 @@ mescla_datasets <- function(type, crime, year, months = get_months()) {
   return(dataset[,-1])
 }
 
+#' Carrega datasets por ano
+#'
+#' Função que captura os datasets por mes e mescla em um único dataset do ano.
+#' @param type O tipo do dataset. Valores possiveis: "raw", "wrangled", "spatial", "site"
+#' @param year O ano dos datasets
+#' @export
+#' @examples
+#' # Recupera o dataset de todos os crimes do ano de 2012
+#' carrega_dataset_ano("spatial", 2012)
 carrega_dataset_ano <- function(type, ano) {
   default_location <- '/run/media/rmartine/TOSHIBA EXT/big-data-projects/ssp/'
 
